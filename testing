@@ -1,0 +1,184 @@
+req.body.image = req.file.filename;
+
+
+
+ handleChange = (e) => {
+    const { name, value, type, files } = e.target;
+
+    if (type === "file") {
+      console.log("the file is ", files[0].name);
+      this.setState(
+        {
+          filesToUpload: files,
+        },
+        () => {
+          this.setState(
+            {
+              imageAvialable: true,
+            },
+            () => {
+              this.validate(name);
+            }
+          );
+        }
+      );
+    }
+
+    this.setState(
+      (prevState) => ({
+        data: {
+          ...prevState.data,
+          [name]: value,
+        },
+      }),
+      () => {
+        this.validate(name);
+      }
+    );
+  };
+
+
+
+   <div id="my-slider" className="carousel slide" data-ride="carousel">
+              <ol className="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  className="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+              <div className="carousel-inner" data-interval="1000">
+                <div className="carousel-item ">
+                  <img
+                    className="d-block w-100"
+                    src="http://localhost:5000/1597214002989-pngfuel.com.png"
+                    alt="First slide"
+                  />
+                </div>
+                <div className="carousel-item active">
+                  <img
+                    className="d-block w-100"
+                    src="http://localhost:5000/1597214050082-pngfuel.com (2).png"
+                    alt="second slide"
+                  />
+                </div>
+                <div className="carousel-item ">
+                  <img
+                    className="d-block w-100"
+                    src="http://localhost:5000/1597214050082-pngfuel.com (2).png"
+                    alt="third slide"
+                  />
+                </div>
+              </div>
+              <a
+                className="carousel-control-prev"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a
+                className="carousel-control-next"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="sr-only">Next</span>
+              </a>
+            </div>
+
+
+
+
+
+
+            import { Carousel } from "antd";
+import "antd/dist/antd.css";
+
+export default function App() {
+  return (
+    <Carousel autoplay>
+      <div>
+        <img width="500px" src="https://picsum.photos/200/300?random=1" />
+      </div>
+
+      <div>
+        <img width="500px" src="https://picsum.photos/200/300?random=2" />
+      </div>
+
+      <div>
+        <img width="500px" src="https://picsum.photos/200/300?random=3" />
+      </div>
+
+      <div>
+        <img width="500px" src="https://picsum.photos/200/300?random=4" />
+      </div>
+    </Carousel>
+  );
+}
+
+
+
+test2 = () => {
+    console.log("function call bhayo");
+    httpCient
+      .GET("/auth/find", true)
+      .then((response) => {
+        setBadge(response.data.cart.length);
+      })
+      .catch((err) => {
+        console.log("the err is", err.response);
+      });
+  };
+
+
+ <Badge count={1}>
+          <ShoppingCartOutlined style={{ fontSize: "25px" }} />
+        </Badge>
+
+
+        import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Badge } from "antd";
+
+
+ httpCient
+        .GET(`/product/product/${item.id}`)
+        .then((response) => {
+          this.setState(
+            {
+              product: response.data,
+            },
+            () => {
+              console.log("the product is", this.state.product);
+            }
+          );
+        })
+        .catch((err) => {
+          console.log("the err is", err.response);
+        });
+
+      return (
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
+      );
+
